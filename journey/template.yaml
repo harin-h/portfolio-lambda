@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+
+Description:
+  Rest API for Journey Service of Portfolio
+Resources:
+  JourneyService:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: bootstrap
+      CodeUri: ./main.zip
+      Runtime: go1.x
+      Timeout: 10
+      Events:
+        GetAllJourney:
+          Type: Api
+          Properties:
+            Path: /journey
+            Method: get
+        AddNewJourney:
+          Type: Api
+          Properties:
+            Path: /journey
+            Method: post
+        UpdateJourney:
+          Type: Api
+          Properties:
+            Path: /journey
+            Method: put
+        DeleteJourney:
+          Type: Api
+          Properties:
+            Path: /journey
+            Method: delete

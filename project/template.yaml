@@ -1,0 +1,135 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+
+Description:
+  Rest API for Project Service of Portfolio
+Resources:
+  ProjectService:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: bootstrap
+      CodeUri: ./main.zip
+      Runtime: go1.x
+      Timeout: 30
+      Events:
+        GetAllProjectDescript:
+          Type: Api
+          Properties:
+            Path: /project/descript
+            Method: get
+        AddNewProjectDescript:
+          Type: Api
+          Properties:
+            Path: /project/descript
+            Method: post
+        UpdateProjectDescript:
+          Type: Api
+          Properties:
+            Path: /project/descript
+            Method: put
+        DeleteProjectDescript:
+          Type: Api
+          Properties:
+            Path: /project/descript
+            Method: delete
+        GetAllProjectTag:
+          Type: Api
+          Properties:
+            Path: /project/tag
+            Method: get
+        AddNewProjectTag:
+          Type: Api
+          Properties:
+            Path: /project/tag
+            Method: post
+        UpdateProjectTag:
+          Type: Api
+          Properties:
+            Path: /project/tag
+            Method: put
+        DeleteProjectTag:
+          Type: Api
+          Properties:
+            Path: /project/tag
+            Method: delete
+        GetAllProjectTopic:
+          Type: Api
+          Properties:
+            Path: /project/topic/{id}
+            Method: get
+        AddNewProjectTopic:
+          Type: Api
+          Properties:
+            Path: /project/topic
+            Method: post
+        UpdateProjectTopic:
+          Type: Api
+          Properties:
+            Path: /project/topic
+            Method: put
+        DeleteProjectTopic:
+          Type: Api
+          Properties:
+            Path: /project/topic
+            Method: delete
+        GetAllProjectPicture:
+          Type: Api
+          Properties:
+            Path: /project/picture
+            Method: get
+        AddNewProjectPicture:
+          Type: Api
+          Properties:
+            Path: /project/picture
+            Method: post
+        UpdateProjectPicture:
+          Type: Api
+          Properties:
+            Path: /project/picture
+            Method: put
+        DeleteProjectPicture:
+          Type: Api
+          Properties:
+            Path: /project/picture
+            Method: delete
+        GetAllGroup:
+          Type: Api
+          Properties:
+            Path: /group
+            Method: get
+        AddNewGroup:
+          Type: Api
+          Properties:
+            Path: /group
+            Method: post
+        UpdateGroup:
+          Type: Api
+          Properties:
+            Path: /group
+            Method: put
+        DeleteGroup:
+          Type: Api
+          Properties:
+            Path: /group
+            Method: delete
+        GetAllGroupProject:
+          Type: Api
+          Properties:
+            Path: /group/project
+            Method: get
+        AddNewGroupProject:
+          Type: Api
+          Properties:
+            Path: /group/project
+            Method: post
+        UpdateGroupProject:
+          Type: Api
+          Properties:
+            Path: /group/project
+            Method: put
+        DeleteGroupProject:
+          Type: Api
+          Properties:
+            Path: /group/project
+            Method: delete

@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+
+Description:
+  Rest API for Profile Service of Portfolio
+Resources:
+  ProfileService:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: bootstrap
+      CodeUri: ./main.zip
+      Runtime: go1.x
+      Timeout: 10
+      Events:
+        GetProfile:
+          Type: Api
+          Properties:
+            Path: /profile
+            Method: get
+        AddNewMetric:
+          Type: Api
+          Properties:
+            Path: /profile
+            Method: post
+        UpdateMetric:
+          Type: Api
+          Properties:
+            Path: /profile
+            Method: put
+        DeleteMetric:
+          Type: Api
+          Properties:
+            Path: /profile
+            Method: delete
